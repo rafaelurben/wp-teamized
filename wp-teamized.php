@@ -9,6 +9,7 @@
  * License: GPLv3
  * Text Domain: wp-teamized
  * GitHub Plugin URI: https://github.com/rafaelurben/wp-teamized
+ * Primary Branch: main
  */
 
 // Exit if accessed directly
