@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: Teamized Integration 0.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-teamized\n"
 "Last-Translator: Rafael Urben <github@rafaelurben.ch>\n"
-"Language-Team: Deutsch (Schweiz, Du) <LL@li.org>\n"
+"Language-Team: Deutsch <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-01-25T20:19:26+00:00\n"
-"PO-Revision-Date: 2026-01-25 21:30+0000\n"
-"Language: de_CH_informal\n"
+"PO-Revision-Date: 2026-01-26 00:00+0000\n"
+"Language: de\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-teamized\n"
 
@@ -52,7 +52,7 @@ msgstr "Keine Daten verfügbar oder ungültiges Antwortformat."
 
 #: includes/blocks/club-member-portfolios/render.php:85
 msgid "Please configure the API URL in the block settings."
-msgstr "Bitte konfiguriere die API-URL in den Block-Einstellungen."
+msgstr "Bitte konfigurieren Sie die API-URL in den Block-Einstellungen."
 
 #. translators: %s is the member's full name.
 #: includes/blocks/club-member-portfolios/render.php:135
@@ -62,7 +62,7 @@ msgstr "Details anzeigen für %s"
 
 #: includes/blocks/club-member-portfolios/render.php:164
 msgid "Close dialog"
-msgstr "Dialog schliessen"
+msgstr "Dialog schließen"
 
 #: includes/blocks/club-member-portfolios/render.php:189
 msgid "Member since"
@@ -106,7 +106,7 @@ msgstr "Cache-Dauer"
 
 #: includes/settings-page.php:75
 msgid "Configure how long API responses should be cached to improve performance."
-msgstr "Konfiguriere, wie lange API-Antworten zwischengespeichert werden sollen, um die Performance zu verbessern."
+msgstr "Konfigurieren Sie, wie lange API-Antworten zwischengespeichert werden sollen, um die Leistung zu verbessern."
 
 #: includes/settings-page.php:87
 msgid "5 minutes"
@@ -168,7 +168,7 @@ msgstr "Cache jetzt leeren"
 #: includes/settings-page.php:180
 #, php-format
 msgid "To force refresh the cache for a specific page without clearing all cache, add %s to the page URL (administrators only)."
-msgstr "Um den Cache für eine bestimmte Seite zu aktualisieren, ohne den gesamten Cache zu löschen, füge %s zur Seiten-URL hinzu (nur Administratoren)."
+msgstr "Um den Cache für eine bestimmte Seite zu aktualisieren, ohne den gesamten Cache zu löschen, fügen Sie %s zur Seiten-URL hinzu (nur Administratoren)."
 
 #: wp-teamized.php:44
 #: includes/blocks/club-member-portfolios/index.js:17
@@ -206,11 +206,11 @@ msgstr "API-URL"
 
 #: includes/blocks/club-member-portfolios/index.js:22
 msgid "Enter the API URL to fetch club member portfolios"
-msgstr "Gib die API URL ein, um Mitgliedsportfolios abzurufen"
+msgstr "Geben Sie die API-URL ein, um Mitgliedsportfolios abzurufen"
 
 #: includes/blocks/club-member-portfolios/index.js:29
 msgid "Teamized club member portfolios"
-msgstr "Teamized Club-Mitgliederportfolios"
+msgstr "Teamized Vereinsmitglieder-Portfolios"
 
 #: includes/blocks/club-member-portfolios/index.js:34
 msgid "API URL: "
@@ -218,4 +218,4 @@ msgstr "API-URL: "
 
 #: includes/blocks/club-member-portfolios/index.js:38
 msgid "Please configure the API URL in the block settings (right sidebar)."
-msgstr "Bitte konfiguriere die API-URL in den Block-Einstellungen (rechte Seitenleiste)"
+msgstr "Bitte konfigurieren Sie die API-URL in den Block-Einstellungen (rechte Seitenleiste)."
