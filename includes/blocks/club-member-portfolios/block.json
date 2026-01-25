@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "teamized/club-member-portfolios",
+	"version": "1.0.0",
+	"title": "Teamized club member portfolios",
+	"category": "widgets",
+	"icon": "groups",
+	"description": "Display club member portfolios from an API endpoint.",
+	"keywords": ["teamized", "portfolio", "members"],
+	"textdomain": "wp-teamized",
+	"editorScript": "teamized-club-member-portfolios-editor",
+	"attributes": {
+		"apiUrl": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}
