@@ -25,9 +25,18 @@ function teamized_register_blocks() {
 		filemtime( __DIR__ . '/club-member-portfolios/index.js' )
 	);
 
+	// Register the block stylesheet
+	wp_register_style(
+		'teamized-club-member-portfolios-style',
+		plugins_url( 'club-member-portfolios/style.css', __FILE__ ),
+		array(),
+		filemtime( __DIR__ . '/club-member-portfolios/style.css' )
+	);
+
 	// Register club member portfolios block type from block.json
 	register_block_type( __DIR__ . '/club-member-portfolios', array(
 		'render_callback' => 'teamized_club_member_portfolios_render_block',
+		'style'           => 'teamized-club-member-portfolios-style',
 	) );
 }
 

@@ -82,7 +82,7 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 	$api_url = isset( $attributes['apiUrl'] ) ? esc_url( $attributes['apiUrl'] ) : '';
 
 	if ( empty( $api_url ) ) {
-		return '<div class="teamized-portfolios"><p>' . esc_html__( 'Please configure the API URL in the block settings.', 'wp-teamized' ) . '</p></div>';
+		return '<div class="teamized-portfolio-block"><p>' . esc_html__( 'Please configure the API URL in the block settings.', 'wp-teamized' ) . '</p></div>';
 	}
 
 	// Check if cache refresh is requested (admin only)
@@ -93,47 +93,252 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 
 	// Handle errors
 	if ( is_wp_error( $data ) ) {
-		return '<div class="teamized-portfolios"><p>' . esc_html( $data->get_error_message() ) . '</p></div>';
+		return '<div class="teamized-portfolio-block"><p>' . esc_html( $data->get_error_message() ) . '</p></div>';
 	}
 
 	// Render the portfolios
-	$output = '<div class="teamized-portfolios">';
+	$output = '<div class="teamized-portfolio-block">';
 
 	// Render title (top-level name)
-	if ( isset( $data['name'] ) && ! empty( $data['name'] ) ) {
+	if ( ! empty( $data['name'] ) ) {
 		$output .= '<h2 class="teamized-title">' . esc_html( $data['name'] ) . '</h2>';
 	}
 
 	// Render subtitle (top-level description)
-	if ( isset( $data['description'] ) && ! empty( $data['description'] ) ) {
-		$output .= '<p class="teamized-description">' . esc_html( $data['description'] ) . '</p>';
+	if ( ! empty( $data['description'] ) ) {
+		$output .= '<div class="teamized-description">' . nl2br( esc_html( $data['description'] ) ) . '</div>';
 	}
 
 	// Render individual member portfolios
-	if ( isset( $data['portfolios'] ) && is_array( $data['portfolios'] ) && ! empty( $data['portfolios'] ) ) {
+	if ( is_array( $data['portfolios'] ) && ! empty( $data['portfolios'] ) ) {
 		$output .= '<div class="teamized-members">';
 
-		foreach ( $data['portfolios'] as $member ) {
-			$output .= '<div class="teamized-member">';
+		foreach ( $data['portfolios'] as $index => $member ) {
+			// Get member data
+			$first_name    = isset( $member['first_name'] ) ? $member['first_name'] : '';
+			$last_name     = isset( $member['last_name'] ) ? $member['last_name'] : '';
+			$full_name     = trim( $first_name . ' ' . $last_name );
+			$role          = isset( $member['role'] ) ? $member['role'] : '';
+			$image1_url    = ! empty( $member['image1_url'] ) ? $member['image1_url'] : 'https://placehold.co/400x400/e0e0e0/666?text=No+Image+1';
+			$image2_url    = ! empty( $member['image2_url'] ) ? $member['image2_url'] : 'https://placehold.co/400x400/ffcc00/666?text=No+Image+2';
+			$member_id     = isset( $member['id'] ) ? $member['id'] : 'member-' . $index;
+			$member_since  = isset( $member['member_since'] ) ? $member['member_since'] : '';
+			$hobby_since   = isset( $member['hobby_since'] ) ? $member['hobby_since'] : '';
+			$profession    = isset( $member['profession'] ) ? $member['profession'] : '';
+			$hobbies       = isset( $member['hobbies'] ) ? $member['hobbies'] : '';
+			$highlights    = isset( $member['highlights'] ) ? $member['highlights'] : '';
+			$biography     = isset( $member['biography'] ) ? $member['biography'] : '';
+			$contact_email = isset( $member['contact_email'] ) ? $member['contact_email'] : '';
 
-			// Render member name
-			$first_name = isset( $member['first_name'] ) ? $member['first_name'] : '';
-			$last_name  = isset( $member['last_name'] ) ? $member['last_name'] : '';
-			$full_name  = trim( $first_name . ' ' . $last_name );
+			// Render member card
+			$output .= '<div class="teamized-member" role="button" tabindex="0" data-member-id="' . esc_attr( $member_id ) . '" aria-label="' . esc_attr( sprintf( __( 'View details for %s', 'wp-teamized' ), $full_name ) ) . '">';
+
+			// Card image with hover effect
+			$output .= '<div class="teamized-member-image">';
+			$output .= '<div class="teamized-member-image-inner image1" style="background-image: url(' . esc_url( $image1_url ) . ');"></div>';
+			if ( ! empty( $image2_url ) ) {
+				$output .= '<div class="teamized-member-image-inner image2" style="background-image: url(' . esc_url( $image2_url ) . ');"></div>';
+			}
+			$output .= '</div>';
+
+			// Card content
+			$output .= '<div class="teamized-member-content">';
 
 			if ( ! empty( $full_name ) ) {
 				$output .= '<h3 class="teamized-member-name">' . esc_html( $full_name ) . '</h3>';
 			}
 
+			if ( ! empty( $role ) ) {
+				$output .= '<p class="teamized-member-role">' . esc_html( $role ) . '</p>';
+			}
+
+			$output .= '</div>'; // .teamized-member-content
+			$output .= '</div>'; // .teamized-member
+
+			// Render modal for this member
+			$output .= '<div class="teamized-modal-overlay" id="modal-' . esc_attr( $member_id ) . '" role="dialog" aria-modal="true" aria-labelledby="modal-title-' . esc_attr( $member_id ) . '">';
+			$output .= '<div class="teamized-modal">';
+
+			// Close button
+			$output .= '<button class="teamized-modal-close" aria-label="' . esc_attr__( 'Close dialog', 'wp-teamized' ) . '">&times;</button>';
+
+			// Modal header with images
+			$output .= '<div class="teamized-modal-header">';
+			$output .= '<div class="teamized-modal-image image1 active" style="background-image: url(' . esc_url( $image1_url ) . ');" data-image="image1"></div>';
+			$output .= '<div class="teamized-modal-image image2" style="background-image: url(' . esc_url( $image2_url ) . ');" data-image="image2"></div>';
 			$output .= '</div>';
+
+			// Modal content
+			$output .= '<div class="teamized-modal-content">';
+
+			if ( ! empty( $full_name ) ) {
+				$output .= '<h2 class="teamized-modal-name" id="modal-title-' . esc_attr( $member_id ) . '">' . esc_html( $full_name ) . '</h2>';
+			}
+
+			if ( ! empty( $role ) ) {
+				$output .= '<p class="teamized-modal-role">' . esc_html( $role ) . '</p>';
+			}
+
+			// Modal fields
+			$output .= '<div class="teamized-modal-fields">';
+
+			// Member since
+			if ( ! empty( $member_since ) ) {
+				$output .= '<div class="teamized-field">';
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Member since', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $member_since ) . '</div>';
+				$output .= '</div>';
+			}
+
+			// Hobby since
+			if ( ! empty( $hobby_since ) ) {
+				$output .= '<div class="teamized-field">';
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Hobby since', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $hobby_since ) . '</div>';
+				$output .= '</div>';
+			}
+
+			// Profession
+			if ( ! empty( $profession ) ) {
+				$output .= '<div class="teamized-field">';
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Profession', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $profession ) . '</div>';
+				$output .= '</div>';
+			}
+
+			// Hobbies
+			if ( ! empty( $hobbies ) ) {
+				$output .= '<div class="teamized-field">';
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Hobbies', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $hobbies ) . '</div>';
+				$output .= '</div>';
+			}
+
+			// Highlights
+			if ( ! empty( $highlights ) ) {
+				$output .= '<div class="teamized-field">';
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Highlights', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $highlights ) . '</div>';
+				$output .= '</div>';
+			}
+
+			// Contact email
+			if ( ! empty( $contact_email ) ) {
+				$output .= '<div class="teamized-field">';
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Contact', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value"><a href="mailto:' . esc_attr( $contact_email ) . '">' . esc_html( $contact_email ) . '</a></div>';
+				$output .= '</div>';
+			}
+
+			// Biography
+			if ( ! empty( $biography ) ) {
+				$output .= '<div class="teamized-field">';
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Biography', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $biography ) . '</div>';
+				$output .= '</div>';
+			}
+
+			$output .= '</div>'; // .teamized-modal-fields
+			$output .= '</div>'; // .teamized-modal-content
+			$output .= '</div>'; // .teamized-modal
+			$output .= '</div>'; // .teamized-modal-overlay
 		}
 
-		$output .= '</div>';
+		$output .= '</div>'; // .teamized-members
 	} else {
 		$output .= '<p>' . esc_html__( 'No member portfolios found.', 'wp-teamized' ) . '</p>';
 	}
 
-	$output .= '</div>';
+	$output .= '</div>'; // .teamized-portfolio-block
+
+	// Add inline JavaScript for modal functionality
+	$output .= "
+	<script>
+	(function() {
+		'use strict';
+		
+		// Open modal
+		function openModal(modalId) {
+			const modal = document.getElementById(modalId);
+			if (!modal) return;
+			
+			modal.classList.add('active');
+			document.body.style.overflow = 'hidden';
+			
+			// Focus the close button for accessibility
+			modal.querySelector('.teamized-modal-close').focus();
+			
+			// Start image fade animation after 5s
+			setTimeout(function() {
+				modal.querySelector('.teamized-modal-image.image1').classList.remove('active');
+				modal.querySelector('.teamized-modal-image.image2').classList.add('active');
+			}, 5000);
+		}
+		
+		// Close modal
+		function closeModal(modal) {
+			if (!modal) return;
+			
+			modal.classList.remove('active');
+			document.body.style.overflow = '';
+			
+			// Reset images
+			modal.querySelector('.teamized-modal-image.image1').classList.add('active');
+			modal.querySelector('.teamized-modal-image.image2').classList.remove('active');
+		}
+		
+		// Setup member cards
+		const memberCards = document.querySelectorAll('.teamized-member');
+		memberCards.forEach(function(card) {
+			const memberId = card.getAttribute('data-member-id');
+			const modalId = 'modal-' + memberId;
+			
+			// Click handler
+			card.addEventListener('click', function() {
+				openModal(modalId);
+			});
+			
+			// Keyboard handler (Enter or Space)
+			card.addEventListener('keydown', function(e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					openModal(modalId);
+				}
+			});
+		});
+		
+		// Setup modal close buttons
+		const closeButtons = document.querySelectorAll('.teamized-modal-close');
+		closeButtons.forEach(function(btn) {
+			btn.addEventListener('click', function(e) {
+				e.stopPropagation();
+				const modal = btn.closest('.teamized-modal-overlay');
+				closeModal(modal);
+			});
+		});
+		
+		// Setup overlay click to close
+		const overlays = document.querySelectorAll('.teamized-modal-overlay');
+		overlays.forEach(function(overlay) {
+			overlay.addEventListener('click', function(e) {
+				if (e.target === overlay) {
+					closeModal(overlay);
+				}
+			});
+		});
+		
+		// Escape key to close modal
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape') {
+				const activeModal = document.querySelector('.teamized-modal-overlay.active');
+				if (activeModal) {
+					closeModal(activeModal);
+				}
+			}
+		});
+	})();
+	</script>
+	";
 
 	return $output;
 }
