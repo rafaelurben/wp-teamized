@@ -16,11 +16,15 @@ This is a WordPress Plugin for integrating with [django-teamized](https://github
    3. Upload the zipped archive directly.
    4. Click "Activate Plugin".
    5. Go to the "Settings → Git Updater" screen and click "Activate Free Version".
-2. Go to "Settings → Git Updater → Install Plugin".
-3. In the "Plugin URI" field, enter: `https://github.com/rafaelurben/wp-teamized`
-4. In the "Repository Branch" field, enter: `main`
-5. Click the "Install Plugin" button.
-6. After installation, activate the plugin.
+2. Install the "wp-teamized" plugin:
+   1. Download the latest zip archive from [Releases](https://github.com/rafaelurben/wp-teamized/releases).
+   2. Go to the "Plugins → Add Plugin" screen and click the "Upload Plugin" button.
+   3. Upload the zipped archive directly.
+   4. Click "Activate Plugin".
+
+> [!WARNING]
+> If the plugin is installed via Git Updater settings, translations may not work correctly.
+> Please install the plugin via zip upload as described above.
 
 ## Development Setup
 
