@@ -1,0 +1,222 @@
+# Copyright (C) 2026 Rafael Urben
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Teamized Integration 0.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-teamized\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-01-25T22:03:12+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-teamized\n"
+
+#. Plugin Name of the plugin
+#: wp-teamized.php
+msgid "Teamized Integration"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: wp-teamized.php
+msgid "https://github.com/rafaelurben/wp-teamized"
+msgstr ""
+
+#. Description of the plugin
+#: wp-teamized.php
+msgid "WordPress plugin for integrating with Teamized."
+msgstr ""
+
+#. Author of the plugin
+#: wp-teamized.php
+msgid "Rafael Urben"
+msgstr ""
+
+#. Author URI of the plugin
+#: wp-teamized.php
+msgid "https://github.com/rafaelurben"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:24
+msgid "API URL is required."
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:50
+msgid "Error fetching data from API."
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:58
+msgid "No data available or invalid response format."
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:85
+msgid "Please configure the API URL in the block settings."
+msgstr ""
+
+#. translators: %s is the member's full name.
+#: includes/blocks/club-member-portfolios/render.php:135
+#, php-format
+msgid "View details for %s"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:164
+msgid "Close dialog"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:189
+msgid "Member since"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:197
+msgid "Hobby since"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:205
+msgid "Profession"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:213
+msgid "Hobbies"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:221
+msgid "Highlights"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:229
+msgid "Contact"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:237
+msgid "Biography"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:250
+msgid "No member portfolios found."
+msgstr ""
+
+#: includes/settings-page.php:40
+msgid "Cache Settings"
+msgstr ""
+
+#: includes/settings-page.php:47
+msgid "Cache Duration"
+msgstr ""
+
+#: includes/settings-page.php:75
+msgid "Configure how long API responses should be cached to improve performance."
+msgstr ""
+
+#: includes/settings-page.php:87
+msgid "5 minutes"
+msgstr ""
+
+#: includes/settings-page.php:90
+msgid "15 minutes"
+msgstr ""
+
+#: includes/settings-page.php:93
+msgid "30 minutes"
+msgstr ""
+
+#: includes/settings-page.php:96
+msgid "1 hour"
+msgstr ""
+
+#: includes/settings-page.php:99
+msgid "2 hours"
+msgstr ""
+
+#: includes/settings-page.php:102
+msgid "6 hours"
+msgstr ""
+
+#: includes/settings-page.php:105
+msgid "12 hours"
+msgstr ""
+
+#: includes/settings-page.php:108
+msgid "24 hours"
+msgstr ""
+
+#: includes/settings-page.php:112
+msgid "How long to store API responses in cache before fetching fresh data."
+msgstr ""
+
+#: includes/settings-page.php:136
+msgid "Cache cleared successfully."
+msgstr ""
+
+#: includes/settings-page.php:162
+msgid "Save Settings"
+msgstr ""
+
+#: includes/settings-page.php:168
+msgid "Cache Management"
+msgstr ""
+
+#: includes/settings-page.php:169
+msgid "Clear all cached API responses to force fresh data on the next request."
+msgstr ""
+
+#: includes/settings-page.php:173
+msgid "Clear Cache Now"
+msgstr ""
+
+#. translators: %s: The query parameter code to add to the URL
+#: includes/settings-page.php:180
+#, php-format
+msgid "To force refresh the cache for a specific page without clearing all cache, add %s to the page URL (administrators only)."
+msgstr ""
+
+#: wp-teamized.php:43
+#: includes/blocks/club-member-portfolios/index.js:17
+msgid "Settings"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:19
+msgid "API URL"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:22
+msgid "Enter the API URL to fetch club member portfolios"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:29
+msgid "Teamized club member portfolios"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:34
+msgid "API URL: "
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:38
+msgid "Please configure the API URL in the block settings (right sidebar)."
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block title"
+msgid "Teamized club member portfolios"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block description"
+msgid "Display club member portfolios from an API endpoint."
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block keyword"
+msgid "teamized"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block keyword"
+msgid "portfolio"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block keyword"
+msgid "members"
+msgstr ""

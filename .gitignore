@@ -1,1 +1,16 @@
 .idea
+
+# Compiled translation files
+languages/*.mo
+languages/*.json
+
+# Node modules (if using npm for build tools)
+node_modules/
+package-lock.json
+
+# Composer dependencies (if using composer)
+vendor/
+
+# OS files
+.DS_Store
+Thumbs.db

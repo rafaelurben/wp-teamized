@@ -1,0 +1,221 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Teamized Integration 0.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-teamized\n"
+"Last-Translator: Rafael Urben <github@rafaelurben.ch>\n"
+"Language-Team: Deutsch (Schweiz, Du) <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-01-25T20:19:26+00:00\n"
+"PO-Revision-Date: 2026-01-25 21:30+0000\n"
+"Language: de_CH_informal\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-teamized\n"
+
+#. Plugin Name of the plugin
+#: wp-teamized.php
+msgid "Teamized Integration"
+msgstr "Teamized Integration"
+
+#. Plugin URI of the plugin
+#: wp-teamized.php
+msgid "https://github.com/rafaelurben/wp-teamized"
+msgstr "https://github.com/rafaelurben/wp-teamized"
+
+#. Description of the plugin
+#: wp-teamized.php
+msgid "WordPress plugin for integrating with Teamized."
+msgstr "WordPress-Plugin zur Integration mit Teamized."
+
+#. Author of the plugin
+#: wp-teamized.php
+msgid "Rafael Urben"
+msgstr "Rafael Urben"
+
+#. Author URI of the plugin
+#: wp-teamized.php
+msgid "https://github.com/rafaelurben"
+msgstr "https://github.com/rafaelurben"
+
+#: includes/blocks/club-member-portfolios/render.php:24
+msgid "API URL is required."
+msgstr "API-URL ist erforderlich."
+
+#: includes/blocks/club-member-portfolios/render.php:50
+msgid "Error fetching data from API."
+msgstr "Fehler beim Abrufen der Daten von der API."
+
+#: includes/blocks/club-member-portfolios/render.php:58
+msgid "No data available or invalid response format."
+msgstr "Keine Daten verfügbar oder ungültiges Antwortformat."
+
+#: includes/blocks/club-member-portfolios/render.php:85
+msgid "Please configure the API URL in the block settings."
+msgstr "Bitte konfiguriere die API-URL in den Block-Einstellungen."
+
+#. translators: %s is the member's full name.
+#: includes/blocks/club-member-portfolios/render.php:135
+#, php-format
+msgid "View details for %s"
+msgstr "Details anzeigen für %s"
+
+#: includes/blocks/club-member-portfolios/render.php:164
+msgid "Close dialog"
+msgstr "Dialog schliessen"
+
+#: includes/blocks/club-member-portfolios/render.php:189
+msgid "Member since"
+msgstr "Mitglied seit"
+
+#: includes/blocks/club-member-portfolios/render.php:197
+msgid "Hobby since"
+msgstr "Hobby seit"
+
+#: includes/blocks/club-member-portfolios/render.php:205
+msgid "Profession"
+msgstr "Beruf"
+
+#: includes/blocks/club-member-portfolios/render.php:213
+msgid "Hobbies"
+msgstr "Hobbys"
+
+#: includes/blocks/club-member-portfolios/render.php:221
+msgid "Highlights"
+msgstr "Highlights"
+
+#: includes/blocks/club-member-portfolios/render.php:229
+msgid "Contact"
+msgstr "Kontakt"
+
+#: includes/blocks/club-member-portfolios/render.php:237
+msgid "Biography"
+msgstr "Biografie"
+
+#: includes/blocks/club-member-portfolios/render.php:250
+msgid "No member portfolios found."
+msgstr "Keine Mitglieder-Portfolios gefunden."
+
+#: includes/settings-page.php:40
+msgid "Cache Settings"
+msgstr "Cache-Einstellungen"
+
+#: includes/settings-page.php:47
+msgid "Cache Duration"
+msgstr "Cache-Dauer"
+
+#: includes/settings-page.php:75
+msgid "Configure how long API responses should be cached to improve performance."
+msgstr "Konfiguriere, wie lange API-Antworten zwischengespeichert werden sollen, um die Performance zu verbessern."
+
+#: includes/settings-page.php:87
+msgid "5 minutes"
+msgstr "5 Minuten"
+
+#: includes/settings-page.php:90
+msgid "15 minutes"
+msgstr "15 Minuten"
+
+#: includes/settings-page.php:93
+msgid "30 minutes"
+msgstr "30 Minuten"
+
+#: includes/settings-page.php:96
+msgid "1 hour"
+msgstr "1 Stunde"
+
+#: includes/settings-page.php:99
+msgid "2 hours"
+msgstr "2 Stunden"
+
+#: includes/settings-page.php:102
+msgid "6 hours"
+msgstr "6 Stunden"
+
+#: includes/settings-page.php:105
+msgid "12 hours"
+msgstr "12 Stunden"
+
+#: includes/settings-page.php:108
+msgid "24 hours"
+msgstr "24 Stunden"
+
+#: includes/settings-page.php:112
+msgid "How long to store API responses in cache before fetching fresh data."
+msgstr "Wie lange API-Antworten im Cache gespeichert werden sollen, bevor neue Daten abgerufen werden."
+
+#: includes/settings-page.php:136
+msgid "Cache cleared successfully."
+msgstr "Cache erfolgreich geleert."
+
+#: includes/settings-page.php:162
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: includes/settings-page.php:168
+msgid "Cache Management"
+msgstr "Cache-Verwaltung"
+
+#: includes/settings-page.php:169
+msgid "Clear all cached API responses to force fresh data on the next request."
+msgstr "Alle zwischengespeicherten API-Antworten löschen, um bei der nächsten Anfrage neue Daten zu erzwingen."
+
+#: includes/settings-page.php:173
+msgid "Clear Cache Now"
+msgstr "Cache jetzt leeren"
+
+#. translators: %s: The query parameter code to add to the URL
+#: includes/settings-page.php:180
+#, php-format
+msgid "To force refresh the cache for a specific page without clearing all cache, add %s to the page URL (administrators only)."
+msgstr "Um den Cache für eine bestimmte Seite zu aktualisieren, ohne den gesamten Cache zu löschen, füge %s zur Seiten-URL hinzu (nur Administratoren)."
+
+#: wp-teamized.php:43
+#: includes/blocks/club-member-portfolios/index.js:17
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block title"
+msgid "Teamized club member portfolios"
+msgstr "Teamized Vereinsmitglieder-Portfolios"
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block description"
+msgid "Display club member portfolios from an API endpoint."
+msgstr "Vereinsmitglieder-Portfolios von einem API-Endpunkt anzeigen."
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block keyword"
+msgid "teamized"
+msgstr "teamized"
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block keyword"
+msgid "portfolio"
+msgstr "portfolio"
+
+#: includes/blocks/club-member-portfolios/block.json
+msgctxt "block keyword"
+msgid "members"
+msgstr "mitglieder"
+
+#: includes/blocks/club-member-portfolios/index.js:19
+msgid "API URL"
+msgstr "API-URL"
+
+#: includes/blocks/club-member-portfolios/index.js:22
+msgid "Enter the API URL to fetch club member portfolios"
+msgstr "Gib die API URL ein, um Mitgliedsportfolios abzurufen"
+
+#: includes/blocks/club-member-portfolios/index.js:29
+msgid "Teamized club member portfolios"
+msgstr "Teamized Club-Mitgliederportfolios"
+
+#: includes/blocks/club-member-portfolios/index.js:34
+msgid "API URL: "
+msgstr "API-URL: "
+
+#: includes/blocks/club-member-portfolios/index.js:38
+msgid "Please configure the API URL in the block settings (right sidebar)."
+msgstr "Bitte konfiguriere die API-URL in den Block-Einstellungen (rechte Seitenleiste)"

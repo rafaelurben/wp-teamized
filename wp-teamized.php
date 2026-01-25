@@ -16,6 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+/**
+ * Load plugin text domain for translations
+ */
+function teamized_load_textdomain() {
+    load_plugin_textdomain( 'wp-teamized', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'plugins_loaded', 'teamized_load_textdomain' );
+
 // Include settings page functionality
 require_once plugin_dir_path( __FILE__ ) . 'includes/settings-page.php';
 

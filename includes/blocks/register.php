@@ -25,6 +25,13 @@ function teamized_register_blocks() {
 		filemtime( __DIR__ . '/club-member-portfolios/index.js' )
 	);
 
+	// Set script translations for the block editor
+	wp_set_script_translations(
+		'teamized-club-member-portfolios-editor',
+		'wp-teamized',
+		plugin_dir_path( __DIR__ ) . '../languages'
+	);
+
 	// Register the block stylesheet
 	wp_register_style(
 		'teamized-club-member-portfolios-style',

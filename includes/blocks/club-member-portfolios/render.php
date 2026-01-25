@@ -131,6 +131,7 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			$contact_email = isset( $member['contact_email'] ) ? $member['contact_email'] : '';
 
 			// Render member card
+			# translators: %s is the member's full name.
 			$output .= '<div class="teamized-member" role="button" tabindex="0" data-member-id="' . esc_attr( $member_id ) . '" aria-label="' . esc_attr( sprintf( __( 'View details for %s', 'wp-teamized' ), $full_name ) ) . '">';
 
 			// Card image with hover effect

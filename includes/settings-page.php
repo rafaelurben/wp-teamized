@@ -174,9 +174,13 @@ function teamized_render_settings_page() {
         </form>
 
         <p>
-            <?php esc_html_e( 'To force refresh the cache for a specific page without clearing all cache, add', 'wp-teamized' ); ?>
-            <code>?teamized_refresh=1</code>
-            <?php esc_html_e( 'to the page URL (administrators only).', 'wp-teamized' ); ?>
+            <?php
+            printf(
+                /* translators: %s: The query parameter code to add to the URL */
+                esc_html__( 'To force refresh the cache for a specific page without clearing all cache, add %s to the page URL (administrators only).', 'wp-teamized' ),
+                '<code>?teamized_refresh=1</code>'
+            );
+            ?>
         </p>
 
     </div>
