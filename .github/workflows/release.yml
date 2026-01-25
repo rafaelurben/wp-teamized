@@ -60,7 +60,6 @@ jobs:
             echo "No translation files to commit"
           else
             git commit -m "chore: update translation files for version ${{ steps.get_version.outputs.version }}"
-            git push origin main
           fi
 
       - name: Create and push tag
