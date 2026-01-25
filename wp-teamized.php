@@ -3,7 +3,7 @@
  * Plugin Name: Teamized Integration
  * Plugin URI: https://github.com/rafaelurben/wp-teamized
  * Description: WordPress plugin for integrating with Teamized.
- * Version: 0.0.0
+ * Version: 0.0.1
  * Author: Rafael Urben
  * Author URI: https://github.com/rafaelurben
  * License: GPLv3
