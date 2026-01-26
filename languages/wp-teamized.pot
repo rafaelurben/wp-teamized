@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-25T23:33:01+00:00\n"
+"POT-Creation-Date: 2026-01-26T16:52:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-teamized\n"
@@ -56,44 +56,64 @@ msgid "Please configure the API URL in the block settings."
 msgstr ""
 
 #. translators: %s is the member's full name.
-#: includes/blocks/club-member-portfolios/render.php:135
+#: includes/blocks/club-member-portfolios/render.php:138
 #, php-format
 msgid "View details for %s"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:164
+#: includes/blocks/club-member-portfolios/render.php:167
 msgid "Close dialog"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:189
-msgid "Member since"
+#. translators: %1$s is the full name, %2$s is the nickname
+#: includes/blocks/club-member-portfolios/render.php:181
+#, php-format
+msgid "%1$s (\"%2$s\")"
 msgstr ""
 
+#: includes/blocks/club-member-portfolios/render.php:195
+msgid "Age"
+msgstr ""
+
+#. translators: %d is the age in years
 #: includes/blocks/club-member-portfolios/render.php:197
-msgid "Hobby since"
+#, php-format
+msgid "%d years"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:205
+#: includes/blocks/club-member-portfolios/render.php:202
 msgid "Profession"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:213
-msgid "Hobbies"
+#: includes/blocks/club-member-portfolios/render.php:208
+msgid "Hobby since"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:221
+#: includes/blocks/club-member-portfolios/render.php:214
+msgid "Member since"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:220
 msgid "Highlights"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:229
+#: includes/blocks/club-member-portfolios/render.php:226
+msgid "Groups"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:232
+msgid "Hobbies"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/render.php:238
 msgid "Contact"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:237
+#: includes/blocks/club-member-portfolios/render.php:244
 msgid "Biography"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:250
+#: includes/blocks/club-member-portfolios/render.php:256
 msgid "No member portfolios found."
 msgstr ""
 

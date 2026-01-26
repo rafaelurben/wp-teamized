@@ -55,44 +55,44 @@ msgid "Please configure the API URL in the block settings."
 msgstr "Bitte konfiguriere die API-URL in den Block-Einstellungen."
 
 #. translators: %s is the member's full name.
-#: includes/blocks/club-member-portfolios/render.php:135
+#: includes/blocks/club-member-portfolios/render.php:138
 #, php-format
 msgid "View details for %s"
 msgstr "Details anzeigen für %s"
 
-#: includes/blocks/club-member-portfolios/render.php:164
+#: includes/blocks/club-member-portfolios/render.php:167
 msgid "Close dialog"
 msgstr "Dialog schliessen"
 
-#: includes/blocks/club-member-portfolios/render.php:189
+#: includes/blocks/club-member-portfolios/render.php:214
 msgid "Member since"
 msgstr "Mitglied seit"
 
-#: includes/blocks/club-member-portfolios/render.php:197
+#: includes/blocks/club-member-portfolios/render.php:208
 msgid "Hobby since"
 msgstr "Hobby seit"
 
-#: includes/blocks/club-member-portfolios/render.php:205
+#: includes/blocks/club-member-portfolios/render.php:202
 msgid "Profession"
 msgstr "Beruf"
 
-#: includes/blocks/club-member-portfolios/render.php:213
+#: includes/blocks/club-member-portfolios/render.php:232
 msgid "Hobbies"
 msgstr "Hobbys"
 
-#: includes/blocks/club-member-portfolios/render.php:221
+#: includes/blocks/club-member-portfolios/render.php:220
 msgid "Highlights"
 msgstr "Highlights"
 
-#: includes/blocks/club-member-portfolios/render.php:229
+#: includes/blocks/club-member-portfolios/render.php:238
 msgid "Contact"
 msgstr "Kontakt"
 
-#: includes/blocks/club-member-portfolios/render.php:237
+#: includes/blocks/club-member-portfolios/render.php:244
 msgid "Biography"
 msgstr "Biografie"
 
-#: includes/blocks/club-member-portfolios/render.php:250
+#: includes/blocks/club-member-portfolios/render.php:256
 msgid "No member portfolios found."
 msgstr "Keine Mitglieder-Portfolios gefunden."
 
@@ -219,3 +219,23 @@ msgstr "API-URL: "
 #: includes/blocks/club-member-portfolios/index.js:38
 msgid "Please configure the API URL in the block settings (right sidebar)."
 msgstr "Bitte konfiguriere die API-URL in den Block-Einstellungen (rechte Seitenleiste)"
+
+#: includes/blocks/club-member-portfolios/render.php:195
+msgid "Age"
+msgstr "Alter"
+
+#. translators: %d is the age in years
+#: includes/blocks/club-member-portfolios/render.php:197
+#, php-format
+msgid "%d years"
+msgstr "%d Jahre"
+
+#: includes/blocks/club-member-portfolios/render.php:226
+msgid "Groups"
+msgstr "Gruppen"
+
+#. translators: %1$s is the full name, %2$s is the nickname
+#: includes/blocks/club-member-portfolios/render.php:181
+#, php-format
+msgid "%1$s (\"%2$s\")"
+msgstr "%1$s («%2$s»)"

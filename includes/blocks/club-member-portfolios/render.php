@@ -118,6 +118,8 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			$first_name    = isset( $member['first_name'] ) ? $member['first_name'] : '';
 			$last_name     = isset( $member['last_name'] ) ? $member['last_name'] : '';
 			$full_name     = trim( $first_name . ' ' . $last_name );
+			$nickname = isset( $member['nickname'] ) ? $member['nickname'] : '';
+			$age = isset( $member['age'] ) ? $member['age'] : '';
 			$role          = isset( $member['role'] ) ? $member['role'] : '';
 			$image1_url    = ! empty( $member['image1_url'] ) ? $member['image1_url'] : 'https://placehold.co/400x400/e0e0e0/666?text=No+Image+1';
 			$image2_url    = ! empty( $member['image2_url'] ) ? $member['image2_url'] : 'https://placehold.co/400x400/ffcc00/666?text=No+Image+2';
@@ -129,6 +131,7 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			$highlights    = isset( $member['highlights'] ) ? $member['highlights'] : '';
 			$biography     = isset( $member['biography'] ) ? $member['biography'] : '';
 			$contact_email = isset( $member['contact_email'] ) ? $member['contact_email'] : '';
+			$groups = isset( $member['groups'] ) ? $member['groups'] : '';
 
 			// Render member card
 			# translators: %s is the member's full name.
@@ -172,7 +175,12 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			$output .= '<div class="teamized-modal-content">';
 
 			if ( ! empty( $full_name ) ) {
-				$output .= '<h2 class="teamized-modal-name" id="modal-title-' . esc_attr( $member_id ) . '">' . esc_html( $full_name ) . '</h2>';
+				$name_with_nickname = $full_name;
+				if ( ! empty( $nickname ) ) {
+					// translators: %1$s is the full name, %2$s is the nickname
+					$name_with_nickname = sprintf( __( '%1$s ("%2$s")', 'wp-teamized' ), $full_name, $nickname );
+				}
+				$output .= '<h2 class="teamized-modal-name" id="modal-title-' . esc_attr( $member_id ) . '">' . esc_html( $name_with_nickname ) . '</h2>';
 			}
 
 			if ( ! empty( $role ) ) {
@@ -182,16 +190,11 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			// Modal fields
 			$output .= '<div class="teamized-modal-fields">';
 
-			// Member since
-			if ( ! empty( $member_since ) ) {
-				$output .= '<div class="teamized-field-label">' . esc_html__( 'Member since', 'wp-teamized' ) . '</div>';
-				$output .= '<div class="teamized-field-value">' . esc_html( $member_since ) . '</div>';
-			}
-
-			// Hobby since
-			if ( ! empty( $hobby_since ) ) {
-				$output .= '<div class="teamized-field-label">' . esc_html__( 'Hobby since', 'wp-teamized' ) . '</div>';
-				$output .= '<div class="teamized-field-value">' . esc_html( $hobby_since ) . '</div>';
+			// Age
+			if ( ! empty( $age ) ) {
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Age', 'wp-teamized' ) . '</div>';
+				// translators: %d is the age in years
+				$output .= '<div class="teamized-field-value">' . sprintf( esc_html__( '%d years', 'wp-teamized' ), intval( $age ) ) . '</div>';
 			}
 
 			// Profession
@@ -200,16 +203,34 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 				$output .= '<div class="teamized-field-value">' . esc_html( $profession ) . '</div>';
 			}
 
-			// Hobbies
-			if ( ! empty( $hobbies ) ) {
-				$output .= '<div class="teamized-field-label">' . esc_html__( 'Hobbies', 'wp-teamized' ) . '</div>';
-				$output .= '<div class="teamized-field-value">' . esc_html( $hobbies ) . '</div>';
+			// Hobby since
+			if ( ! empty( $hobby_since ) ) {
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Hobby since', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $hobby_since ) . '</div>';
+			}
+
+			// Member since
+			if ( ! empty( $member_since ) ) {
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Member since', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $member_since ) . '</div>';
 			}
 
 			// Highlights
 			if ( ! empty( $highlights ) ) {
 				$output .= '<div class="teamized-field-label">' . esc_html__( 'Highlights', 'wp-teamized' ) . '</div>';
 				$output .= '<div class="teamized-field-value">' . esc_html( $highlights ) . '</div>';
+			}
+
+			// Groups
+			if ( ! empty( $groups ) ) {
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Groups', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $groups ) . '</div>';
+			}
+
+			// Hobbies
+			if ( ! empty( $hobbies ) ) {
+				$output .= '<div class="teamized-field-label">' . esc_html__( 'Hobbies', 'wp-teamized' ) . '</div>';
+				$output .= '<div class="teamized-field-value">' . esc_html( $hobbies ) . '</div>';
 			}
 
 			// Contact email
