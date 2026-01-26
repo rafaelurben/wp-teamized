@@ -157,16 +157,15 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			$output .= '</div>'; // .teamized-member
 
 			// Render modal for this member
-			$output .= '<div class="teamized-modal-overlay" id="modal-' . esc_attr( $member_id ) . '" role="dialog" aria-modal="true" aria-labelledby="modal-title-' . esc_attr( $member_id ) . '">';
+			$output .= '<div class="teamized-portfolio-block-modal-overlay" id="modal-' . esc_attr( $member_id ) . '" role="dialog" aria-modal="true" aria-labelledby="modal-title-' . esc_attr( $member_id ) . '">';
 			$output .= '<div class="teamized-modal">';
 
 			// Close button
 			$output .= '<button class="teamized-modal-close" aria-label="' . esc_attr__( 'Close dialog', 'wp-teamized' ) . '">&times;</button>';
 
-			// Modal header with images
+			// Modal header with image 2 only
 			$output .= '<div class="teamized-modal-header">';
-			$output .= '<div class="teamized-modal-image image1 active" style="background-image: url(' . esc_url( $image1_url ) . ');" data-image="image1"></div>';
-			$output .= '<div class="teamized-modal-image image2" style="background-image: url(' . esc_url( $image2_url ) . ');" data-image="image2"></div>';
+			$output .= '<div class="teamized-modal-image" style="background-image: url(' . esc_url( $image2_url ) . ');"></div>';
 			$output .= '</div>';
 
 			// Modal content
@@ -185,64 +184,50 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 
 			// Member since
 			if ( ! empty( $member_since ) ) {
-				$output .= '<div class="teamized-field">';
 				$output .= '<div class="teamized-field-label">' . esc_html__( 'Member since', 'wp-teamized' ) . '</div>';
 				$output .= '<div class="teamized-field-value">' . esc_html( $member_since ) . '</div>';
-				$output .= '</div>';
 			}
 
 			// Hobby since
 			if ( ! empty( $hobby_since ) ) {
-				$output .= '<div class="teamized-field">';
 				$output .= '<div class="teamized-field-label">' . esc_html__( 'Hobby since', 'wp-teamized' ) . '</div>';
 				$output .= '<div class="teamized-field-value">' . esc_html( $hobby_since ) . '</div>';
-				$output .= '</div>';
 			}
 
 			// Profession
 			if ( ! empty( $profession ) ) {
-				$output .= '<div class="teamized-field">';
 				$output .= '<div class="teamized-field-label">' . esc_html__( 'Profession', 'wp-teamized' ) . '</div>';
 				$output .= '<div class="teamized-field-value">' . esc_html( $profession ) . '</div>';
-				$output .= '</div>';
 			}
 
 			// Hobbies
 			if ( ! empty( $hobbies ) ) {
-				$output .= '<div class="teamized-field">';
 				$output .= '<div class="teamized-field-label">' . esc_html__( 'Hobbies', 'wp-teamized' ) . '</div>';
 				$output .= '<div class="teamized-field-value">' . esc_html( $hobbies ) . '</div>';
-				$output .= '</div>';
 			}
 
 			// Highlights
 			if ( ! empty( $highlights ) ) {
-				$output .= '<div class="teamized-field">';
 				$output .= '<div class="teamized-field-label">' . esc_html__( 'Highlights', 'wp-teamized' ) . '</div>';
 				$output .= '<div class="teamized-field-value">' . esc_html( $highlights ) . '</div>';
-				$output .= '</div>';
 			}
 
 			// Contact email
 			if ( ! empty( $contact_email ) ) {
-				$output .= '<div class="teamized-field">';
 				$output .= '<div class="teamized-field-label">' . esc_html__( 'Contact', 'wp-teamized' ) . '</div>';
 				$output .= '<div class="teamized-field-value"><a href="mailto:' . esc_attr( $contact_email ) . '">' . esc_html( $contact_email ) . '</a></div>';
-				$output .= '</div>';
 			}
 
 			// Biography
 			if ( ! empty( $biography ) ) {
-				$output .= '<div class="teamized-field">';
 				$output .= '<div class="teamized-field-label">' . esc_html__( 'Biography', 'wp-teamized' ) . '</div>';
 				$output .= '<div class="teamized-field-value">' . esc_html( $biography ) . '</div>';
-				$output .= '</div>';
 			}
 
 			$output .= '</div>'; // .teamized-modal-fields
 			$output .= '</div>'; // .teamized-modal-content
 			$output .= '</div>'; // .teamized-modal
-			$output .= '</div>'; // .teamized-modal-overlay
+			$output .= '</div>'; // .teamized-portfolio-block-modal-overlay
 		}
 
 		$output .= '</div>'; // .teamized-members
@@ -268,12 +253,6 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			
 			// Focus the close button for accessibility
 			modal.querySelector('.teamized-modal-close').focus();
-			
-			// Start image fade animation after 5s
-			setTimeout(function() {
-				modal.querySelector('.teamized-modal-image.image1').classList.remove('active');
-				modal.querySelector('.teamized-modal-image.image2').classList.add('active');
-			}, 5000);
 		}
 		
 		// Close modal
@@ -282,10 +261,6 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			
 			modal.classList.remove('active');
 			document.body.style.overflow = '';
-			
-			// Reset images
-			modal.querySelector('.teamized-modal-image.image1').classList.add('active');
-			modal.querySelector('.teamized-modal-image.image2').classList.remove('active');
 		}
 		
 		// Setup member cards
@@ -313,13 +288,13 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 		closeButtons.forEach(function(btn) {
 			btn.addEventListener('click', function(e) {
 				e.stopPropagation();
-				const modal = btn.closest('.teamized-modal-overlay');
+				const modal = btn.closest('.teamized-portfolio-block-modal-overlay');
 				closeModal(modal);
 			});
 		});
 		
 		// Setup overlay click to close
-		const overlays = document.querySelectorAll('.teamized-modal-overlay');
+		const overlays = document.querySelectorAll('.teamized-portfolio-block-modal-overlay');
 		overlays.forEach(function(overlay) {
 			overlay.addEventListener('click', function(e) {
 				if (e.target === overlay) {
@@ -331,7 +306,7 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 		// Escape key to close modal
 		document.addEventListener('keydown', function(e) {
 			if (e.key === 'Escape') {
-				const activeModal = document.querySelector('.teamized-modal-overlay.active');
+				const activeModal = document.querySelector('.teamized-portfolio-block-modal-overlay.active');
 				if (activeModal) {
 					closeModal(activeModal);
 				}

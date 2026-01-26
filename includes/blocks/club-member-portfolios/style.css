@@ -6,6 +6,23 @@
 
 /* Parent Container with Modern & Selector */
 .teamized-portfolio-block {
+	/* CSS Variables */
+	--teamized-portfolio-text-primary: #333;
+	--teamized-portfolio-text-secondary: #666;
+	--teamized-portfolio-text-tertiary: #555;
+	--teamized-portfolio-text-muted: #999;
+	--teamized-portfolio-background-white: #fff;
+	--teamized-portfolio-background-light: #f0f0f0;
+	--teamized-portfolio-scrollbar-background: #f1f1f1;
+	--teamized-portfolio-accent-primary: #0073aa;
+	--teamized-portfolio-shadow-light: rgba(0, 0, 0, 0.1);
+	--teamized-portfolio-shadow-medium: rgba(0, 0, 0, 0.15);
+	--teamized-portfolio-overlay-backdrop: rgba(0, 0, 0, 0.75);
+	--teamized-portfolio-overlay-gradient: rgba(0, 0, 0, 0.25);
+	--teamized-portfolio-scrollbar-thumb: #888;
+	--teamized-portfolio-scrollbar-thumb-hover: #555;
+	--teamized-portfolio-close-button-bg: rgba(255, 255, 255, 0.9);
+
 	margin: 2rem 0;
 
 	& .teamized-title {
@@ -14,7 +31,7 @@
 	}
 
 	& .teamized-description {
-		color: #666;
+		color: var(--teamized-portfolio-text-secondary);
 		margin-bottom: 2rem;
 		line-height: 1.6;
 	}
@@ -22,32 +39,27 @@
 	/* Grid Layout */
 	& .teamized-members {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 1rem;
 		margin: 2rem 0;
-
-		@media (max-width: 768px) {
-			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-			gap: 1rem;
-		}
 	}
 
 	/* Member Card */
 	& .teamized-member {
-		background: #fff;
+		background: var(--teamized-portfolio-background-white);
 		border-radius: 8px;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 2px 8px var(--teamized-portfolio-shadow-light);
 		overflow: hidden;
 		cursor: pointer;
 		transition: transform 0.2s, box-shadow 0.2s;
 
 		&:hover {
 			transform: translateY(-4px);
-			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+			box-shadow: 0 4px 16px var(--teamized-portfolio-shadow-medium);
 		}
 
 		&:focus {
-			outline: 2px solid #0073aa;
+			outline: 2px solid var(--teamized-portfolio-accent-primary);
 			outline-offset: 2px;
 		}
 	}
@@ -56,7 +68,7 @@
 	& .teamized-member-image {
 		width: 100%;
 		height: 250px;
-		background-color: #f0f0f0;
+		background-color: var(--teamized-portfolio-background-light);
 		position: relative;
 		overflow: hidden;
 
@@ -67,7 +79,7 @@
 			left: 0;
 			right: 0;
 			height: 50%;
-			background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+			background: linear-gradient(to bottom, transparent 50%, var(--teamized-portfolio-overlay-gradient));
 			z-index: 2;
 		}
 	}
@@ -110,210 +122,247 @@
 	& .teamized-member-name {
 		font-size: 1.25rem;
 		margin: 0 0 0.5rem 0;
-		color: #333;
+		color: var(--teamized-portfolio-text-primary);
 	}
 
 	& .teamized-member-role {
 		font-size: 0.95rem;
-		color: #666;
+		color: var(--teamized-portfolio-text-secondary);
 		margin: 0;
 		font-style: italic;
 	}
-}
 
-/* Modal Overlay */
-.teamized-modal-overlay {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.75);
-	z-index: 9999;
-	align-items: center;
-	justify-content: center;
-	padding: 1rem;
-	animation: fadeIn 0.2s ease-in;
-
-	&.active {
-		display: flex;
-	}
-
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-
-	/* Modal Dialog */
-	& .teamized-modal {
-		background: #fff;
-		border-radius: 12px;
-		max-width: 900px;
-		width: 100%;
-		max-height: 90vh;
-		overflow-y: auto;
-		position: relative;
-		animation: slideUp 0.3s ease-out;
-
-		@keyframes slideUp {
-			from {
-				transform: translateY(50px);
-				opacity: 0;
-			}
-			to {
-				transform: translateY(0);
-				opacity: 1;
-			}
-		}
-
-		/* Scrollbar Styling */
-		&::-webkit-scrollbar {
-			width: 8px;
-		}
-
-		&::-webkit-scrollbar-track {
-			background: #f1f1f1;
-		}
-
-		&::-webkit-scrollbar-thumb {
-			background: #888;
-			border-radius: 4px;
-
-			&:hover {
-				background: #555;
-			}
-		}
-	}
-
-	/* Close Button */
-	& .teamized-modal-close {
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		background: rgba(255, 255, 255, 0.9);
-		border: none;
-		border-radius: 50%;
-		width: 40px;
-		height: 40px;
-		font-size: 1.5rem;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		z-index: 10;
-		transition: background 0.2s;
-		line-height: 1;
-		color: #333;
-
-		&:hover,
-		&:focus {
-			background: #fff;
-			outline: 2px solid #0073aa;
-		}
-	}
-
-	/* Modal Header with Images */
-	& .teamized-modal-header {
-		position: relative;
-		height: 400px;
-		background-color: #f0f0f0;
-		overflow: hidden;
-
-		@media (max-width: 768px) {
-			height: 300px;
-		}
-	}
-
-	& .teamized-modal-image {
-		position: absolute;
+	/* Modal Overlay */
+	.teamized-portfolio-block-modal-overlay {
+		display: none;
+		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		transition: opacity 0.5s ease-in-out;
-
-		&.image1 {
-			opacity: 0;
-			z-index: 1;
-		}
-
-		&.image2 {
-			opacity: 0;
-			z-index: 2;
-		}
+		background-color: var(--teamized-portfolio-overlay-backdrop);
+		z-index: 9999;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		animation: fadeIn 0.2s ease-in;
 
 		&.active {
-			opacity: 1;
-		}
-	}
-
-	/* Modal Content */
-	& .teamized-modal-content {
-		padding: 2rem;
-	}
-
-	& .teamized-modal-name {
-		font-size: 2rem;
-		margin: 0 0 0.5rem 0;
-		color: #333;
-	}
-
-	& .teamized-modal-role {
-		font-size: 1.1rem;
-		color: #0073aa;
-		margin: 0 0 1.5rem 0;
-		font-weight: 600;
-	}
-
-	/* Modal Fields */
-	& .teamized-modal-fields {
-		display: grid;
-		gap: 1.5rem;
-		margin: 2rem 0;
-	}
-
-	& .teamized-field {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 0.5rem;
-
-		@media (min-width: 768px) {
-			grid-template-columns: 200px 1fr;
-			gap: 1rem;
-			align-items: start;
-		}
-	}
-
-	& .teamized-field-label {
-		font-weight: 600;
-		color: #555;
-		font-size: 0.95rem;
-	}
-
-	& .teamized-field-value {
-		color: #333;
-		line-height: 1.6;
-		white-space: pre-wrap;
-
-		&:empty::before {
-			content: '—';
-			color: #999;
+			display: flex;
 		}
 
-		& a {
-			color: #0073aa;
-			text-decoration: none;
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
 
-			&:hover {
-				text-decoration: underline;
+		/* Modal Dialog */
+		& .teamized-modal {
+			background: var(--teamized-portfolio-background-white);
+			border-radius: 12px;
+			max-width: 1000px;
+			width: 100%;
+			max-height: 90vh;
+			position: relative;
+			animation: slideUp 0.3s ease-out;
+			display: flex;
+			flex-direction: column;
+
+			/* Mobile: allow vertical scrolling on entire modal */
+			overflow-y: auto;
+			overflow-x: hidden;
+
+			/* Desktop: no scrolling on modal itself */
+			@media (min-width: 769px) {
+				overflow: hidden;
+				flex-direction: row;
+			}
+
+			@keyframes slideUp {
+				from {
+					transform: translateY(50px);
+					opacity: 0;
+				}
+				to {
+					transform: translateY(0);
+					opacity: 1;
+				}
+			}
+
+			/* Scrollbar Styling */
+			&::-webkit-scrollbar {
+				width: 8px;
+			}
+
+			&::-webkit-scrollbar-track {
+				background: var(--teamized-portfolio-scrollbar-background);
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background: var(--teamized-portfolio-scrollbar-thumb);
+				border-radius: 4px;
+
+				&:hover {
+					background: var(--teamized-portfolio-scrollbar-thumb-hover);
+				}
+			}
+		}
+
+		/* Close Button */
+		& .teamized-modal-close {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			background: var(--teamized-portfolio-close-button-bg);
+			border: none;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			font-size: 1.5rem;
+			cursor: pointer;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 10;
+			transition: background 0.2s;
+			line-height: 1;
+			color: var(--teamized-portfolio-text-primary);
+
+			&:hover,
+			&:focus {
+				background: var(--teamized-portfolio-background-white);
+				outline: 2px solid var(--teamized-portfolio-accent-primary);
+			}
+		}
+
+		/* Modal Header with Image */
+		& .teamized-modal-header {
+			position: relative;
+			background-color: var(--teamized-portfolio-background-light);
+			overflow: hidden;
+			flex-shrink: 0;
+
+			/* Mobile: Image above */
+			height: 300px;
+			width: 100%;
+
+			/* Desktop: Image on the left - fixed square */
+			@media (min-width: 769px) {
+				width: 450px;
+				height: auto;
+				min-height: 450px;
+				max-height: 90vh;
+				border-radius: 12px 0 0 12px;
+			}
+		}
+
+		& .teamized-modal-image {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+
+			@media (min-width: 769px) {
+				position: sticky;
+				top: 0;
+				aspect-ratio: 1 / 1;
+				min-height: 450px;
+			}
+		}
+
+		/* Modal Content */
+		& .teamized-modal-content {
+			padding: 2rem;
+			flex: 1;
+
+			/* Mobile: no overflow, let parent modal handle scrolling */
+			overflow-y: visible;
+
+			/* Desktop: scrollable content area */
+			@media (min-width: 769px) {
+				overflow-y: auto;
+				max-height: 90vh;
+			}
+
+			/* Scrollbar Styling for content */
+			&::-webkit-scrollbar {
+				width: 8px;
+			}
+
+			&::-webkit-scrollbar-track {
+				background: var(--teamized-portfolio-scrollbar-background);
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background: var(--teamized-portfolio-scrollbar-thumb);
+				border-radius: 4px;
+
+				&:hover {
+					background: var(--teamized-portfolio-scrollbar-thumb-hover);
+				}
+			}
+		}
+
+		& .teamized-modal-name {
+			font-size: 2rem;
+			margin: 0 0 0.5rem 0;
+			color: var(--teamized-portfolio-text-primary);
+		}
+
+		& .teamized-modal-role {
+			font-size: 1.1rem;
+			color: var(--teamized-portfolio-accent-primary);
+			margin: 0 0 1.5rem 0;
+			font-weight: 600;
+		}
+
+		/* Modal Fields */
+		& .teamized-modal-fields {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 0.5rem 1rem;
+			margin: 2rem 0 0;
+
+			@media (min-width: 768px) {
+				grid-template-columns: 150px 1fr;
+				align-items: start;
+			}
+		}
+
+		& .teamized-field-label {
+			font-weight: 600;
+			color: var(--teamized-portfolio-text-tertiary);
+			font-size: 0.95rem;
+		}
+
+		& .teamized-field-value {
+			color: var(--teamized-portfolio-text-primary);
+			line-height: 1.6;
+			white-space: pre-wrap;
+
+			/* On mobile, add bottom margin for spacing */
+			@media (max-width: 767px) {
+				margin-bottom: 1rem;
+			}
+
+			&:empty::before {
+				content: '—';
+				color: var(--teamized-portfolio-text-muted);
+			}
+
+			& a {
+				color: var(--teamized-portfolio-accent-primary);
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}
