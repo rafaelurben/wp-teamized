@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-26T16:52:43+00:00\n"
+"POT-Creation-Date: 2026-01-26T17:15:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-teamized\n"
@@ -51,69 +51,69 @@ msgstr ""
 msgid "No data available or invalid response format."
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:85
+#: includes/blocks/club-member-portfolios/render.php:88
 msgid "Please configure the API URL in the block settings."
 msgstr ""
 
 #. translators: %s is the member's full name.
-#: includes/blocks/club-member-portfolios/render.php:138
+#: includes/blocks/club-member-portfolios/render.php:144
 #, php-format
 msgid "View details for %s"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:167
+#: includes/blocks/club-member-portfolios/render.php:173
 msgid "Close dialog"
 msgstr ""
 
 #. translators: %1$s is the full name, %2$s is the nickname
-#: includes/blocks/club-member-portfolios/render.php:181
+#: includes/blocks/club-member-portfolios/render.php:187
 #, php-format
 msgid "%1$s (\"%2$s\")"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:195
+#: includes/blocks/club-member-portfolios/render.php:201
 msgid "Age"
 msgstr ""
 
 #. translators: %d is the age in years
-#: includes/blocks/club-member-portfolios/render.php:197
+#: includes/blocks/club-member-portfolios/render.php:203
 #, php-format
 msgid "%d years"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:202
+#: includes/blocks/club-member-portfolios/render.php:208
 msgid "Profession"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:208
+#: includes/blocks/club-member-portfolios/render.php:214
 msgid "Hobby since"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:214
+#: includes/blocks/club-member-portfolios/render.php:220
 msgid "Member since"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:220
+#: includes/blocks/club-member-portfolios/render.php:226
 msgid "Highlights"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:226
+#: includes/blocks/club-member-portfolios/render.php:232
 msgid "Groups"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:232
+#: includes/blocks/club-member-portfolios/render.php:238
 msgid "Hobbies"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:238
+#: includes/blocks/club-member-portfolios/render.php:244
 msgid "Contact"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:244
+#: includes/blocks/club-member-portfolios/render.php:250
 msgid "Biography"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/render.php:256
+#: includes/blocks/club-member-portfolios/render.php:262
 msgid "No member portfolios found."
 msgstr ""
 
@@ -192,27 +192,51 @@ msgid "To force refresh the cache for a specific page without clearing all cache
 msgstr ""
 
 #: wp-teamized.php:44
-#: includes/blocks/club-member-portfolios/index.js:17
+#: includes/blocks/club-member-portfolios/index.js:18
 msgid "Settings"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/index.js:19
+#: includes/blocks/club-member-portfolios/index.js:20
 msgid "API URL"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/index.js:22
+#: includes/blocks/club-member-portfolios/index.js:23
 msgid "Enter the API URL to fetch club member portfolios"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/index.js:29
-msgid "Teamized club member portfolios"
+#: includes/blocks/club-member-portfolios/index.js:26
+msgid "Default Image 1 URL"
 msgstr ""
 
-#: includes/blocks/club-member-portfolios/index.js:34
-msgid "API URL: "
+#: includes/blocks/club-member-portfolios/index.js:29
+msgid "Fallback image URL when a member has no image 1"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:32
+msgid "Default Image 2 URL"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:35
+msgid "Fallback image URL when a member has no image 2"
 msgstr ""
 
 #: includes/blocks/club-member-portfolios/index.js:38
+msgid "Show Title and Description"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:41
+msgid "Display the title and description from the API response"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:48
+msgid "Teamized club member portfolios"
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:53
+msgid "API URL: "
+msgstr ""
+
+#: includes/blocks/club-member-portfolios/index.js:57
 msgid "Please configure the API URL in the block settings (right sidebar)."
 msgstr ""
 

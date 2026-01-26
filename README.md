@@ -40,6 +40,8 @@ This is a WordPress Plugin for integrating with [django-teamized](https://github
 ## Translation
 
 This plugin uses WordPress's built-in translation system with text domain `wp-teamized`.
+The compiled translation files (`.mo` and `.json`) are not included in the repository.
+They are generated from the `.po` files in the release pipeline.
 
 Use WP-CLI to generate `.pot` and `.po` files:
 
@@ -48,6 +50,9 @@ Use WP-CLI to generate `.pot` and `.po` files:
 wp i18n make-pot . languages/wp-teamized.pot
 # Update .po files for each language
 wp i18n update-po languages/wp-teamized.pot
+
+# Now update the .po files with your translations...
+
 # Compile .po files to .mo
 wp i18n make-mo languages/
 # Generate .json files for JavaScript translations from .po files
@@ -61,6 +66,9 @@ You may also use the Docker version (PowerShell):
 docker run --rm --volume "${PWD}:/var/www/html/wp-content/plugins/wp-teamized" --workdir /var/www/html/wp-content/plugins/wp-teamized wordpress:cli wp i18n make-pot . languages/wp-teamized.pot
 # Update .po files for each language
 docker run --rm --volume "${PWD}:/var/www/html/wp-content/plugins/wp-teamized" --workdir /var/www/html/wp-content/plugins/wp-teamized wordpress:cli wp i18n update-po languages/wp-teamized.pot
+
+# Now update the .po files with your translations...
+
 # Compile .po files to .mo
 docker run --rm --volume "${PWD}:/var/www/html/wp-content/plugins/wp-teamized" --workdir /var/www/html/wp-content/plugins/wp-teamized wordpress:cli wp i18n make-mo languages/
 # Generate .json files for JavaScript translations from .po files

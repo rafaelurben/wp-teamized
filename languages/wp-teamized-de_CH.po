@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Teamized Integration 0.0.0\n"
+"Project-Id-Version: Teamized Integration 0.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-teamized\n"
 "Last-Translator: Rafael Urben <github@rafaelurben.ch>\n"
 "Language-Team: Deutsch (Schweiz) <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-25T20:19:26+00:00\n"
-"PO-Revision-Date: 2026-01-26 00:00+0000\n"
+"POT-Creation-Date: 2026-01-26T17:09:25+00:00\n"
+"PO-Revision-Date: 2026-01-26 17:30+0000\n"
 "Language: de_CH\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-teamized\n"
@@ -50,49 +50,49 @@ msgstr "Fehler beim Abrufen der Daten von der API."
 msgid "No data available or invalid response format."
 msgstr "Keine Daten verfügbar oder ungültiges Antwortformat."
 
-#: includes/blocks/club-member-portfolios/render.php:85
+#: includes/blocks/club-member-portfolios/render.php:88
 msgid "Please configure the API URL in the block settings."
 msgstr "Bitte konfigurieren Sie die API-URL in den Block-Einstellungen."
 
 #. translators: %s is the member's full name.
-#: includes/blocks/club-member-portfolios/render.php:138
+#: includes/blocks/club-member-portfolios/render.php:144
 #, php-format
 msgid "View details for %s"
 msgstr "Details anzeigen für %s"
 
-#: includes/blocks/club-member-portfolios/render.php:167
+#: includes/blocks/club-member-portfolios/render.php:173
 msgid "Close dialog"
 msgstr "Dialog schliessen"
 
-#: includes/blocks/club-member-portfolios/render.php:214
+#: includes/blocks/club-member-portfolios/render.php:220
 msgid "Member since"
 msgstr "Mitglied seit"
 
-#: includes/blocks/club-member-portfolios/render.php:208
+#: includes/blocks/club-member-portfolios/render.php:214
 msgid "Hobby since"
 msgstr "Hobby seit"
 
-#: includes/blocks/club-member-portfolios/render.php:202
+#: includes/blocks/club-member-portfolios/render.php:208
 msgid "Profession"
 msgstr "Beruf"
 
-#: includes/blocks/club-member-portfolios/render.php:232
+#: includes/blocks/club-member-portfolios/render.php:238
 msgid "Hobbies"
 msgstr "Hobbys"
 
-#: includes/blocks/club-member-portfolios/render.php:220
+#: includes/blocks/club-member-portfolios/render.php:226
 msgid "Highlights"
 msgstr "Highlights"
 
-#: includes/blocks/club-member-portfolios/render.php:238
+#: includes/blocks/club-member-portfolios/render.php:244
 msgid "Contact"
 msgstr "Kontakt"
 
-#: includes/blocks/club-member-portfolios/render.php:244
+#: includes/blocks/club-member-portfolios/render.php:250
 msgid "Biography"
 msgstr "Biografie"
 
-#: includes/blocks/club-member-portfolios/render.php:256
+#: includes/blocks/club-member-portfolios/render.php:262
 msgid "No member portfolios found."
 msgstr "Keine Mitglieder-Portfolios gefunden."
 
@@ -171,7 +171,7 @@ msgid "To force refresh the cache for a specific page without clearing all cache
 msgstr "Um den Cache für eine bestimmte Seite zu aktualisieren, ohne den gesamten Cache zu löschen, fügen Sie %s zur Seiten-URL hinzu (nur Administratoren)."
 
 #: wp-teamized.php:44
-#: includes/blocks/club-member-portfolios/index.js:17
+#: includes/blocks/club-member-portfolios/index.js:18
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -200,42 +200,22 @@ msgctxt "block keyword"
 msgid "members"
 msgstr "mitglieder"
 
-#: includes/blocks/club-member-portfolios/index.js:19
-msgid "API URL"
-msgstr "API-URL"
-
-#: includes/blocks/club-member-portfolios/index.js:22
-msgid "Enter the API URL to fetch club member portfolios"
-msgstr "Geben Sie die API-URL ein, um Mitgliedsportfolios abzurufen"
-
-#: includes/blocks/club-member-portfolios/index.js:29
-msgid "Teamized club member portfolios"
-msgstr "Teamized Vereinsmitglieder-Portfolios"
-
-#: includes/blocks/club-member-portfolios/index.js:34
-msgid "API URL: "
-msgstr "API-URL: "
-
-#: includes/blocks/club-member-portfolios/index.js:38
-msgid "Please configure the API URL in the block settings (right sidebar)."
-msgstr "Bitte konfigurieren Sie die API-URL in den Block-Einstellungen (rechte Seitenleiste)."
-
-#: includes/blocks/club-member-portfolios/render.php:195
+#: includes/blocks/club-member-portfolios/render.php:201
 msgid "Age"
 msgstr "Alter"
 
 #. translators: %d is the age in years
-#: includes/blocks/club-member-portfolios/render.php:197
+#: includes/blocks/club-member-portfolios/render.php:203
 #, php-format
 msgid "%d years"
 msgstr "%d Jahre"
 
-#: includes/blocks/club-member-portfolios/render.php:226
+#: includes/blocks/club-member-portfolios/render.php:232
 msgid "Groups"
 msgstr "Gruppen"
 
 #. translators: %1$s is the full name, %2$s is the nickname
-#: includes/blocks/club-member-portfolios/render.php:181
+#: includes/blocks/club-member-portfolios/render.php:187
 #, php-format
 msgid "%1$s (\"%2$s\")"
 msgstr "%1$s («%2$s»)"

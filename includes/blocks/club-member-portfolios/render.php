@@ -80,6 +80,9 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 	error_log( 'teamized_club_member_portfolios_render_block called with attributes: ' . print_r( $attributes, true ) );
 
 	$api_url = isset( $attributes['apiUrl'] ) ? esc_url( $attributes['apiUrl'] ) : '';
+	$default_image1_url = isset( $attributes['defaultImage1Url'] ) ? esc_url( $attributes['defaultImage1Url'] ) : 'https://placehold.co/400x400/e0e0e0/666?text=%3F';
+	$default_image2_url = isset( $attributes['defaultImage2Url'] ) ? esc_url( $attributes['defaultImage2Url'] ) : 'https://placehold.co/400x400/ffcc00/666?text=%3F';
+	$show_title_and_description = ! isset( $attributes['showTitleAndDescription'] ) || $attributes['showTitleAndDescription'];
 
 	if ( empty( $api_url ) ) {
 		return '<div class="teamized-portfolio-block"><p>' . esc_html__( 'Please configure the API URL in the block settings.', 'wp-teamized' ) . '</p></div>';
@@ -99,14 +102,17 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 	// Render the portfolios
 	$output = '<div class="teamized-portfolio-block">';
 
-	// Render title (top-level name)
-	if ( ! empty( $data['name'] ) ) {
-		$output .= '<h2 class="teamized-title">' . esc_html( $data['name'] ) . '</h2>';
-	}
+	// Render title and description if enabled
+	if ( $show_title_and_description ) {
+		// Render title (top-level name)
+		if ( ! empty( $data['name'] ) ) {
+			$output .= '<h2 class="teamized-title">' . esc_html( $data['name'] ) . '</h2>';
+		}
 
-	// Render subtitle (top-level description)
-	if ( ! empty( $data['description'] ) ) {
-		$output .= '<div class="teamized-description">' . nl2br( esc_html( $data['description'] ) ) . '</div>';
+		// Render subtitle (top-level description)
+		if ( ! empty( $data['description'] ) ) {
+			$output .= '<div class="teamized-description">' . nl2br( esc_html( $data['description'] ) ) . '</div>';
+		}
 	}
 
 	// Render individual member portfolios
@@ -121,8 +127,8 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 			$nickname = isset( $member['nickname'] ) ? $member['nickname'] : '';
 			$age = isset( $member['age'] ) ? $member['age'] : '';
 			$role          = isset( $member['role'] ) ? $member['role'] : '';
-			$image1_url    = ! empty( $member['image1_url'] ) ? $member['image1_url'] : 'https://placehold.co/400x400/e0e0e0/666?text=No+Image+1';
-			$image2_url    = ! empty( $member['image2_url'] ) ? $member['image2_url'] : 'https://placehold.co/400x400/ffcc00/666?text=No+Image+2';
+			$image1_url = ! empty( $member['image1_url'] ) ? $member['image1_url'] : $default_image1_url;
+			$image2_url = ! empty( $member['image2_url'] ) ? $member['image2_url'] : $default_image2_url;
 			$member_id     = isset( $member['id'] ) ? $member['id'] : 'member-' . $index;
 			$member_since  = isset( $member['member_since'] ) ? $member['member_since'] : '';
 			$hobby_since   = isset( $member['hobby_since'] ) ? $member['hobby_since'] : '';
