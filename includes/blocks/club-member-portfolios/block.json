@@ -26,6 +26,11 @@
 		"showTitleAndDescription": {
 			"type": "boolean",
 			"default": true
+		},
+		"sorting": {
+			"type": "string",
+			"enum": ["lastname-firstname", "firstname-lastname", "random"],
+			"default": "random"
 		}
 	},
 	"supports": {

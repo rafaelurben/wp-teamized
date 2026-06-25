@@ -50,49 +50,49 @@ msgstr "Fehler beim Abrufen der Daten von der API."
 msgid "No data available or invalid response format."
 msgstr "Keine Daten verfügbar oder ungültiges Antwortformat."
 
-#: includes/blocks/club-member-portfolios/render.php:88
+#: includes/blocks/club-member-portfolios/render.php:89
 msgid "Please configure the API URL in the block settings."
 msgstr "Bitte konfiguriere die API-URL in den Block-Einstellungen."
 
 #. translators: %s is the member's full name.
-#: includes/blocks/club-member-portfolios/render.php:144
+#: includes/blocks/club-member-portfolios/render.php:165
 #, php-format
 msgid "View details for %s"
 msgstr "Details anzeigen für %s"
 
-#: includes/blocks/club-member-portfolios/render.php:173
+#: includes/blocks/club-member-portfolios/render.php:194
 msgid "Close dialog"
 msgstr "Dialog schliessen"
 
-#: includes/blocks/club-member-portfolios/render.php:220
+#: includes/blocks/club-member-portfolios/render.php:241
 msgid "Member since"
 msgstr "Mitglied seit"
 
-#: includes/blocks/club-member-portfolios/render.php:214
+#: includes/blocks/club-member-portfolios/render.php:235
 msgid "Hobby since"
 msgstr "Hobby seit"
 
-#: includes/blocks/club-member-portfolios/render.php:208
+#: includes/blocks/club-member-portfolios/render.php:229
 msgid "Profession"
 msgstr "Beruf"
 
-#: includes/blocks/club-member-portfolios/render.php:238
+#: includes/blocks/club-member-portfolios/render.php:259
 msgid "Hobbies"
 msgstr "Hobbys"
 
-#: includes/blocks/club-member-portfolios/render.php:226
+#: includes/blocks/club-member-portfolios/render.php:247
 msgid "Highlights"
 msgstr "Highlights"
 
-#: includes/blocks/club-member-portfolios/render.php:244
+#: includes/blocks/club-member-portfolios/render.php:265
 msgid "Contact"
 msgstr "Kontakt"
 
-#: includes/blocks/club-member-portfolios/render.php:250
+#: includes/blocks/club-member-portfolios/render.php:271
 msgid "Biography"
 msgstr "Biografie"
 
-#: includes/blocks/club-member-portfolios/render.php:262
+#: includes/blocks/club-member-portfolios/render.php:283
 msgid "No member portfolios found."
 msgstr "Keine Mitglieder-Portfolios gefunden."
 
@@ -171,7 +171,7 @@ msgid "To force refresh the cache for a specific page without clearing all cache
 msgstr "Um den Cache für eine bestimmte Seite zu aktualisieren, ohne den gesamten Cache zu löschen, füge %s zur Seiten-URL hinzu (nur Administratoren)."
 
 #: wp-teamized.php:44
-#: includes/blocks/club-member-portfolios/index.js:18
+#: includes/blocks/club-member-portfolios/index.js:19
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -200,22 +200,22 @@ msgctxt "block keyword"
 msgid "members"
 msgstr "mitglieder"
 
-#: includes/blocks/club-member-portfolios/render.php:201
+#: includes/blocks/club-member-portfolios/render.php:222
 msgid "Age"
 msgstr "Alter"
 
 #. translators: %d is the age in years
-#: includes/blocks/club-member-portfolios/render.php:203
+#: includes/blocks/club-member-portfolios/render.php:224
 #, php-format
 msgid "%d years"
 msgstr "%d Jahre"
 
-#: includes/blocks/club-member-portfolios/render.php:232
+#: includes/blocks/club-member-portfolios/render.php:253
 msgid "Groups"
 msgstr "Gruppen"
 
 #. translators: %1$s is the full name, %2$s is the nickname
-#: includes/blocks/club-member-portfolios/render.php:187
+#: includes/blocks/club-member-portfolios/render.php:208
 #, php-format
 msgid "%1$s (\"%2$s\")"
 msgstr "%1$s («%2$s»)"

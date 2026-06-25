@@ -4,6 +4,7 @@
     const useBlockProps = blockEditor.useBlockProps;
     const TextControl = components.TextControl;
     const ToggleControl = components.ToggleControl;
+    const SelectControl = components.SelectControl;
     const PanelBody = components.PanelBody;
     const __ = i18n.__;
 
@@ -39,6 +40,17 @@
                             checked: attributes.showTitleAndDescription,
                             onChange: newValue => setAttributes({showTitleAndDescription: newValue}),
                             help: __('Display the title and description from the API response', 'wp-teamized'),
+                        }),
+                        el(SelectControl, {
+                            label: __('Sorting', 'wp-teamized'),
+                            value: attributes.sorting,
+                            options: [
+                                {label: __('Last Name, First Name', 'wp-teamized'), value: 'lastname-firstname'},
+                                {label: __('First Name, Last Name', 'wp-teamized'), value: 'firstname-lastname'},
+                                {label: __('Random', 'wp-teamized'), value: 'random'}
+                            ],
+                            onChange: newSorting => setAttributes({sorting: newSorting}),
+                            help: __('Select the sorting method for the club member portfolios', 'wp-teamized'),
                         })
                     )
                 ),

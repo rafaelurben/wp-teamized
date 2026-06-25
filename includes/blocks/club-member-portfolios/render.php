@@ -83,6 +83,7 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 	$default_image1_url = isset( $attributes['defaultImage1Url'] ) ? esc_url( $attributes['defaultImage1Url'] ) : 'https://placehold.co/400x400/e0e0e0/666?text=%3F';
 	$default_image2_url = isset( $attributes['defaultImage2Url'] ) ? esc_url( $attributes['defaultImage2Url'] ) : 'https://placehold.co/400x400/ffcc00/666?text=%3F';
 	$show_title_and_description = ! isset( $attributes['showTitleAndDescription'] ) || $attributes['showTitleAndDescription'];
+    $sorting_option = ! empty( $attributes['sorting'] ) ? $attributes['sorting'] : 'random';
 
 	if ( empty( $api_url ) ) {
 		return '<div class="teamized-portfolio-block"><p>' . esc_html__( 'Please configure the API URL in the block settings.', 'wp-teamized' ) . '</p></div>';
@@ -117,9 +118,29 @@ function teamized_club_member_portfolios_render_block( $attributes ) {
 
 	// Render individual member portfolios
 	if ( is_array( $data['portfolios'] ) && ! empty( $data['portfolios'] ) ) {
+        $portfolios = $data['portfolios'];
+        // Sort portfolios
+        if ( $sorting_option == 'random' ) {
+            shuffle( $portfolios );
+        } elseif ( $sorting_option == 'firstname-lastname' ) {
+            usort($portfolios, function ($a, $b) {
+                if ($a['first_name'] === $b['first_name']) {
+                    return $b['last_name'] <=> $a['last_name']; // Sort by last name in ascending order
+                }
+                return $a['first_name'] <=> $b['first_name']; // Sort by first name in ascending order
+            });
+        } elseif ( $sorting_option == 'lastname-firstname' ) {
+            usort($portfolios, function ($a, $b) {
+                if ($a['last_name'] === $b['last_name']) {
+                    return $a['first_name'] <=> $b['first_name']; // Sort by first name in ascending order
+                }
+                return $a['last_name'] <=> $b['last_name']; // Sort by last name in ascending order
+            });
+        }
+
 		$output .= '<div class="teamized-members">';
 
-		foreach ( $data['portfolios'] as $index => $member ) {
+		foreach ( $portfolios as $index => $member ) {
 			// Get member data
 			$first_name    = isset( $member['first_name'] ) ? $member['first_name'] : '';
 			$last_name     = isset( $member['last_name'] ) ? $member['last_name'] : '';
