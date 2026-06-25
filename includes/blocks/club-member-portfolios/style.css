@@ -4,15 +4,16 @@
  * @package Teamized
  */
 
-/* Parent Container with Modern & Selector */
-.teamized-portfolio-block {
-	/* CSS Variables */
+/* CSS Variables */
+:root {
 	--teamized-portfolio-text-primary: #333;
 	--teamized-portfolio-text-secondary: #666;
 	--teamized-portfolio-text-tertiary: #555;
 	--teamized-portfolio-text-muted: #999;
-	--teamized-portfolio-background-white: #fff;
-	--teamized-portfolio-background-light: #f0f0f0;
+	--teamized-portfolio-image-bg: #000;
+	--teamized-portfolio-card-bg: #fff;
+	--teamized-portfolio-modal-bg: #fff;
+	--teamized-portfolio-grid-image-aspect-ratio: 3/4;
 	--teamized-portfolio-scrollbar-background: #f1f1f1;
 	--teamized-portfolio-accent-primary: #0073aa;
 	--teamized-portfolio-shadow-light: rgba(0, 0, 0, 0.1);
@@ -22,7 +23,10 @@
 	--teamized-portfolio-scrollbar-thumb: #888;
 	--teamized-portfolio-scrollbar-thumb-hover: #555;
 	--teamized-portfolio-close-button-bg: rgba(255, 255, 255, 0.9);
+}
 
+/* Parent Container with Modern & Selector */
+.teamized-portfolio-block {
 	margin: 2rem 0;
 
 	& .teamized-title {
@@ -46,16 +50,15 @@
 
 	/* Member Card */
 	& .teamized-member {
-		background: var(--teamized-portfolio-background-white);
+		background: var(--teamized-portfolio-card-bg);
 		border-radius: 8px;
-		box-shadow: 0 2px 8px var(--teamized-portfolio-shadow-light);
+
 		overflow: hidden;
 		cursor: pointer;
 		transition: transform 0.2s, box-shadow 0.2s;
 
 		&:hover {
 			transform: translateY(-4px);
-			box-shadow: 0 4px 16px var(--teamized-portfolio-shadow-medium);
 		}
 
 		&:focus {
@@ -67,10 +70,16 @@
 	/* Member Card Image */
 	& .teamized-member-image {
 		width: 100%;
-		height: 250px;
-		background-color: var(--teamized-portfolio-background-light);
+		aspect-ratio: var(--teamized-portfolio-grid-image-aspect-ratio);
+		background-color: var(--teamized-portfolio-image-bg);
+		border-radius: 8px;
+		box-shadow: 0 2px 8px var(--teamized-portfolio-shadow-light);
 		position: relative;
 		overflow: hidden;
+
+		&:hover {
+			box-shadow: 0 4px 16px var(--teamized-portfolio-shadow-medium);
+		}
 
 		&::after {
 			content: '';
@@ -79,7 +88,6 @@
 			left: 0;
 			right: 0;
 			height: 50%;
-			background: linear-gradient(to bottom, transparent 50%, var(--teamized-portfolio-overlay-gradient));
 			z-index: 2;
 		}
 	}
@@ -97,12 +105,10 @@
 
 		&.image1 {
 			opacity: 1;
-			z-index: 1;
 		}
 
 		&.image2 {
 			opacity: 0;
-			z-index: 0;
 		}
 	}
 
@@ -162,24 +168,27 @@
 
 		/* Modal Dialog */
 		& .teamized-modal {
-			background: var(--teamized-portfolio-background-white);
+			background: var(--teamized-portfolio-modal-bg);
 			border-radius: 12px;
-			max-width: 1000px;
-			width: 100%;
-			max-height: 90vh;
 			position: relative;
 			animation: slideUp 0.3s ease-out;
 			display: flex;
 			flex-direction: column;
 
-			/* Mobile: allow vertical scrolling on entire modal */
+			/* Mobile */
 			overflow-y: auto;
 			overflow-x: hidden;
 
-			/* Desktop: no scrolling on modal itself */
-			@media (min-width: 769px) {
+			width: min(95vw, calc(100vh * 0.7));
+			height: 95vh;
+
+			/* Desktop */
+			@media (min-aspect-ratio: 1) {
 				overflow: hidden;
 				flex-direction: row;
+
+				width: min(95vw, 1200px);
+				max-height: min(95vh, calc(100vw * 0.6), 700px);
 			}
 
 			@keyframes slideUp {
@@ -235,7 +244,7 @@
 
 			&:hover,
 			&:focus {
-				background: var(--teamized-portfolio-background-white);
+				background: var(--teamized-portfolio-modal-bg);
 				outline: 2px solid var(--teamized-portfolio-accent-primary);
 			}
 		}
@@ -243,20 +252,20 @@
 		/* Modal Header with Image */
 		& .teamized-modal-header {
 			position: relative;
-			background-color: var(--teamized-portfolio-background-light);
+			background-color: var(--teamized-portfolio-modal-bg);
 			overflow: hidden;
 			flex-shrink: 0;
 
 			/* Mobile: Image above */
-			height: 300px;
+			aspect-ratio: 3/4;
 			width: 100%;
+			max-height: 60vh;
 
-			/* Desktop: Image on the left - fixed square */
-			@media (min-width: 769px) {
-				width: 450px;
-				height: auto;
-				min-height: 450px;
-				max-height: 90vh;
+			/* Desktop: Image on the left */
+			@media (min-aspect-ratio: 1) {
+				width: auto;
+				height: 100%;
+				max-height: unset;
 				border-radius: 12px 0 0 12px;
 			}
 		}
@@ -268,16 +277,16 @@
 			background-position: center;
 			background-repeat: no-repeat;
 
-			@media (min-width: 769px) {
+			@media (min-aspect-ratio: 1) {
 				position: sticky;
 				top: 0;
-				aspect-ratio: 1 / 1;
 				min-height: 450px;
 			}
 		}
 
 		/* Modal Content */
 		& .teamized-modal-content {
+			container-type: size;
 			padding: 2rem;
 			flex: 1;
 
@@ -327,9 +336,10 @@
 			display: grid;
 			grid-template-columns: 1fr;
 			gap: 0.5rem 1rem;
-			margin: 2rem 0 0;
+			margin-top: 2rem;
+			padding-bottom: 2rem;
 
-			@media (min-width: 768px) {
+			@container (min-width: 400px) {
 				grid-template-columns: 150px 1fr;
 				align-items: start;
 			}
@@ -345,9 +355,10 @@
 			color: var(--teamized-portfolio-text-primary);
 			line-height: 1.6;
 			white-space: pre-wrap;
+			font-size: 1rem;
 
-			/* On mobile, add bottom margin for spacing */
-			@media (max-width: 767px) {
+			/* On small width, add bottom margin for spacing */
+			@container (max-width: 399px) {
 				margin-bottom: 1rem;
 			}
 
